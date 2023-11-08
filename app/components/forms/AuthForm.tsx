@@ -26,7 +26,7 @@ const AuthForm = () => {
       if(session?.status === 'authenticated'){
         router.push('/home')
       }
-  },[session?.status])
+  },[session?.status, router])
 
     const {
       register,
@@ -79,7 +79,7 @@ const AuthForm = () => {
 
     const onClick = useCallback(() => {
       return setIsPasswordVisible((prev) => !prev)
-    },[isPasswordVisible])
+    },[])
 
     const toggleVariant = useCallback(() => {
       if (variant === "LOGIN"){

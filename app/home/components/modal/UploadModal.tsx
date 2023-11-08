@@ -2,7 +2,7 @@
 
 import useUploadModal from '@/app/hooks/useUploadModal'
 import { useEdgeStore } from '@/app/lib/edgestore';
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect, useRef} from 'react'
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { LiaPhotoVideoSolid } from 'react-icons/lia';
 import { SingleImageDropzone } from '../SingleImageDropzone';
@@ -12,6 +12,7 @@ import Avatar from '../Avatar';
 import Picker  from '@emoji-mart/react';
 import data from '@emoji-mart/data'
 import { GrEmoji } from 'react-icons/gr'
+import { Emoji } from 'emoji-mart';
 
 interface UploadModalProps{
   currentUser?: User | null
@@ -22,8 +23,9 @@ const UploadModal:React.FC<UploadModalProps> = ({
 }) => {
   const [file, setFile] = React.useState<File>();
   const [text, setText] = useState('');
-  const [selectedEmoji, setSelectedEmoji] = useState(null)
   const [isOpen, setIsOpen] = useState(false);
+  const [cursorPosition, setCursorPosition] = useState()
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const { edgestore } = useEdgeStore();
   const uploadModal = useUploadModal();
 
@@ -38,9 +40,20 @@ const UploadModal:React.FC<UploadModalProps> = ({
         uploadModal.onClose()
     }
 
-    const handleChange = (e:any) => {
-      setText(e.target.value + selectedEmoji);
+    const onEmojiClick = (e:any, emoji:Emoji) => {
+      const ref = textareaRef.current
+      const start = text.substring(0, ref?.selectionStart)
+      const end = ref !==null ? text.substring(ref?.selectionEnd) : ''
+      const msg = start + emoji + end
+      setText(msg);
+      //setCursorPosition(start.length + emoji.)
     }
+
+    // useEffect(() => {
+    //   if (textareaRef.current) {
+    //       textareaRef.current?.selectionEnd = cursorPosition
+    //   }
+    // }, [cursorPosition])
     
     if(showModal) {
       return (
@@ -83,7 +96,7 @@ const UploadModal:React.FC<UploadModalProps> = ({
                       <p className='text-white text-[20px]'>{currentUser?.username}</p>
                     </div>
                     <div className='py-3'>
-                      <textarea name="caption" className='w-full bg-[#262626] text-white outline-none resize-none' rows={5} placeholder='Write a caption' value={text} onChange={handleChange}></textarea>
+                      <textarea name="caption" ref={textareaRef} className='w-full bg-[#262626] text-white outline-none resize-none' rows={5} placeholder='Write a caption'></textarea>
                     </div>
                     <div className=' flex justify-between items-center'>
                       <p onClick={() => setIsOpen((prev) => !prev)}>
@@ -95,9 +108,7 @@ const UploadModal:React.FC<UploadModalProps> = ({
                       <Picker 
                         data={data} 
                         previewPosition='none' 
-                        onEmojiSelect = {(e:any) => {
-                          setSelectedEmoji(e.native)
-                        }}
+                        onEmojiSelect = {onEmojiClick}
                       />
                     </div>
                     <div className={`${isOpen ? 'hidden' : 'block'}`}

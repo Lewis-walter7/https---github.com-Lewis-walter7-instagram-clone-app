@@ -25,12 +25,12 @@ const Sidebar = () => {
         } else{
             uploadModal.onClose()
         }
-      },[activeIndex],
+      },[activeIndex, uploadModal],
     )
     
     const onClick = useCallback(() => {
         setIsOpen((prev) => !prev)
-    },[isOpen])
+    },[])
 
   return (
    
@@ -69,6 +69,7 @@ const Sidebar = () => {
                     <div className=''>
                         {items.map(({name, icon, href}) => (
                             <PopupItem 
+                                key={name}
                                 name={name} 
                                 icon={icon}
                                 href={href}
