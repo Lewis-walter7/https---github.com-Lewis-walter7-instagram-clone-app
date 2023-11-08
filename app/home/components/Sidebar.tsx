@@ -25,7 +25,7 @@ const Sidebar = () => {
         } else{
             uploadModal.onClose()
         }
-      },[activeIndex, uploadModal],
+      },[uploadModal],
     )
     
     const onClick = useCallback(() => {

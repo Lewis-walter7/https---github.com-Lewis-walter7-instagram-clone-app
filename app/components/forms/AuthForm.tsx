@@ -170,7 +170,7 @@ const AuthForm = () => {
             <div className='w-full mt-3 flex justify-center items-center'>
               {variant === 'LOGIN' ? (
                 <p>
-                Don't have an account? <span onClick={toggleVariant} className='cursor-pointer'>
+                Don&apos;t have an account? <span onClick={toggleVariant} className='cursor-pointer'>
                   Sign up
                 </span>
                 </p> 
