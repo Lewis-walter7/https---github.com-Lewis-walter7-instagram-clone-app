@@ -2,7 +2,7 @@
 
 import { GoHome,GoSearch,GoHomeFill,GoReport} from 'react-icons/go'
 import { MdOutlineExplore,MdExplore } from 'react-icons/md'
-import { BsCameraReels,BsBookmark, BsMoonFill} from 'react-icons/bs'
+import { BsCameraVideo,BsFillCameraVideoFill,BsBookmark, BsMoonFill} from 'react-icons/bs'
 import { RiMessengerLine } from "react-icons/ri"
 import { AiOutlineHeart,AiOutlinePlusSquare } from "react-icons/ai"
 import { BiUserCircle, BiSolidUserCircle} from "react-icons/bi"
@@ -17,13 +17,12 @@ export const menuitems = [
     {
         name: 'Home',
         icon: GoHome,
-        href: '/',
+        href: '/home',
         activeIcon: GoHomeFill
     },
     {
         name: 'Search',
         icon: GoSearch,
-        href: '/',
         activeIcon: GoSearch
     },
     {
@@ -34,26 +33,24 @@ export const menuitems = [
     },
     {
         name: 'Reels',
-        icon: BsCameraReels,
+        icon: BsCameraVideo,
         href: '/reels/:id',
-        activeIcon: BsCameraReels
+        activeIcon: BsFillCameraVideoFill
     },
     {
         name: 'Messages',
         icon: RiMessengerLine,
-        href: '/messages',
+        href: '/direct',
         activeIcon: FaFacebookMessenger
     },
     {
         name: 'Notifications',
         icon: AiOutlineHeart,
-        href: '/',
         activeIcon: FcLike
     },
     {
         name: 'Create',
         icon: AiOutlinePlusSquare,
-        href: '/',
         activeIcon: AiOutlinePlusSquare
     },
     {
@@ -96,31 +93,30 @@ export const bottomappbaritems = [
     {
         name: 'Home',
         icon: GoHome,
-        href: '/',
+        href: '/home',
         activeIcon: GoHomeFill
     },
     {
-        name: 'Explore',
-        icon: MdOutlineExplore,
+        name: 'Search',
+        icon: GoSearch,
         href: '/explore',
-        activeIcon: MdExplore
+        activeIcon: GoSearch
     },
     {
         name: 'Reels',
-        icon: BsCameraReels,
+        icon: BsCameraVideo,
         href: '/reels/:id',
-        activeIcon: BsCameraReels
+        activeIcon: BsFillCameraVideoFill
     },
     {
         name: 'Messages',
         icon: RiMessengerLine,
-        href: '/messages',
+        href: '/direct',
         activeIcon: FaFacebookMessenger
     },
     {
         name: 'Create',
         icon: AiOutlinePlusSquare,
-        href: '/',
         activeIcon: AiOutlinePlusSquare
     },
     {
