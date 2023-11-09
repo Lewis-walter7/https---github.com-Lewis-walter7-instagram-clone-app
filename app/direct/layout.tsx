@@ -3,6 +3,7 @@ import UploadModal from "../home/components/modal/UploadModal";
 import { EdgeStoreProvider } from '../lib/edgestore';
 import getCurrentUser from "../actions/getCurrentUser";
 import BottomAppbar from "../home/components/BottomAppbar";
+import TopAppbar from "../home/components/TopAppbar";
 
 interface AppLayoutProps {
     children: React.ReactNode
@@ -16,8 +17,13 @@ export default async function AppLayout({
         <body className="bg-black text-white">
             <EdgeStoreProvider>
                 <BottomAppbar />
+                <TopAppbar />
                 <div className="flex">
-                  {children}
+                    <Sidebar />
+                    <UploadModal currentUser={currentUser}/>
+                    <div className="container min-h-screen bg-black text-white">
+                        {children}
+                    </div>
                 </div>
             </EdgeStoreProvider>
         </body>

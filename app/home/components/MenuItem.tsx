@@ -23,7 +23,9 @@ const MenuItem: React.FC<MenuItemProps> = ({
 const router = useRouter()
     const handleClick = () => {
         onClick()
-        href && router.replace(href);
+        if(href){
+            router.replace(href);
+        }
     }
   return (
     <div className='group'>
@@ -35,7 +37,7 @@ const router = useRouter()
                     <Icon className='text-white' size={30}/>
                 )} 
             </p>
-            <div className={`${index === 7 ? 'block': "hidden"} group-hover:scale-105 -pl-5`}>
+            <div className={`${index === 7 ? 'block': "hidden"} group-hover:scale-105 md:-ml-5`}>
                 {index == 7 && <Avatar />}
             </div>
             <p className='hidden lg:block text-[15px]  text-white'>
