@@ -56,7 +56,8 @@ const UploadModal:React.FC<UploadModalProps> = ({
     //   }
     // }, [cursorPosition])
 
-    const handlePostUpload = async () => {
+    const handlePostUpload = async (e: any) => {
+      e.preventDefault();
       if (file) {
         const res = await edgestore.publicFiles.upload({
           file
