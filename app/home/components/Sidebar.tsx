@@ -34,7 +34,7 @@ const Sidebar = () => {
 
   return (
    
-        <div className='px-5 lg:w-[300px] w-[100px] bg-black min-h-screen relative z-1'>
+        <div className='px-5 lg:w-[300px] w-[100px] bg-black min-h-screen relative z-1 hidden md:block'>
             <div className='py-5'>
                 <Image
                     src='/images/logo.png'

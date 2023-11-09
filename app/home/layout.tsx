@@ -2,6 +2,7 @@ import Sidebar from "./components/Sidebar"
 import UploadModal from "./components/modal/UploadModal"
 import { EdgeStoreProvider } from '../lib/edgestore';
 import getCurrentUser from "../actions/getCurrentUser";
+import BottomAppbar from "./components/BottomAppbar";
 
 interface AppLayoutProps {
     children: React.ReactNode
@@ -14,6 +15,7 @@ export default async function AppLayout({
     return (
         <body className="bg-black text-white">
             <EdgeStoreProvider>
+                <BottomAppbar />
                 <div className="flex">
                     <Sidebar />
                     <UploadModal currentUser={currentUser}/>

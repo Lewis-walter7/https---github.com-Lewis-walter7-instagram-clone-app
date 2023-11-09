@@ -90,8 +90,7 @@ const AuthForm = () => {
   }, [variant])
 
   return (
-    <div className='flex flex-col w-full'>
-      
+    <div className='flex flex-col w-full items-center justify-center h-full'>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className='space-y-3'>
             {variant === 'REGISTER' && (

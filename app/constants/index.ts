@@ -91,3 +91,42 @@ export const items = [
         href: '/settings'
     }
 ]
+
+export const bottomappbaritems = [
+    {
+        name: 'Home',
+        icon: GoHome,
+        href: '/',
+        activeIcon: GoHomeFill
+    },
+    {
+        name: 'Explore',
+        icon: MdOutlineExplore,
+        href: '/explore',
+        activeIcon: MdExplore
+    },
+    {
+        name: 'Reels',
+        icon: BsCameraReels,
+        href: '/reels/:id',
+        activeIcon: BsCameraReels
+    },
+    {
+        name: 'Messages',
+        icon: RiMessengerLine,
+        href: '/messages',
+        activeIcon: FaFacebookMessenger
+    },
+    {
+        name: 'Create',
+        icon: AiOutlinePlusSquare,
+        href: '/',
+        activeIcon: AiOutlinePlusSquare
+    },
+    {
+        name: 'Profile',
+        icon: BiUserCircle,
+        href: '/profile/:id',
+        activeIcon: BiSolidUserCircle
+    }
+]
