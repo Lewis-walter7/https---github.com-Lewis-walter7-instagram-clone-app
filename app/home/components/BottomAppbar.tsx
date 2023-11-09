@@ -23,7 +23,7 @@ const BottomAppbar = () => {
     <div className='fixed bottom-0 w-full h-20'>
         <div className='p-1 flex md:hidden'>
             {bottomappbaritems.map(({name, icon, href, activeIcon}, idx) => (
-                <div className='flex-grow'>
+                <div className='flex-grow' key={name}>
                     <MenuItem 
                         key={name}
                         name={name}
