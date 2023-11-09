@@ -2,8 +2,8 @@
 
 import { bottomappbaritems } from '@/app/constants'
 import React, { useCallback, useState } from 'react'
-import MenuItem from './MenuItem'
 import useUploadModal from '@/app/hooks/useUploadModal';
+import BottombarItem from './BottombarItem';
 
 const BottomAppbar = () => {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -12,7 +12,7 @@ const BottomAppbar = () => {
     const handleClick = useCallback((idx:number) => {
         setActiveIndex(idx)
 
-        if (idx === 6) {
+        if (idx === 4) {
             uploadModal.onOpen();
         } else{
             uploadModal.onClose()
@@ -20,11 +20,11 @@ const BottomAppbar = () => {
       },[uploadModal],
     )
   return (
-    <div className='fixed bottom-0 w-full h-20'>
+    <div className='fixed z-10 bg-black bottom-0 w-full h-20 border-t border-gray-50/20'>
         <div className='p-1 flex md:hidden'>
             {bottomappbaritems.map(({name, icon, href, activeIcon}, idx) => (
                 <div className='flex-grow' key={name}>
-                    <MenuItem 
+                    <BottombarItem 
                         key={name}
                         name={name}
                         activeIcon={activeIcon}

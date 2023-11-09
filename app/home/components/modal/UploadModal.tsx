@@ -57,8 +57,8 @@ const UploadModal:React.FC<UploadModalProps> = ({
     
     if(showModal) {
       return (
-        <div className={`${showModal && 'bg-neutral-800/70 fixed justify-center items-center inset-0 z-100 flex outline-none h-full'}`}>  
-        <div className='w-full md:w-4/5 sm:w-4/5 lg:w-4/6 xl:w-3/5 h-auto lg:h-auto my-6  overflow-x-hidden overflow-y-auto'>
+        <div className={`${showModal && 'bg-neutral-800/70 fixed md:justify-center md:items-center inset-0 z-100 flex outline-none h-full'}`}>  
+        <div className='w-full md:w-4/5 sm:w-4/5 lg:w-4/6 xl:w-3/5 h-auto lg:h-auto m-2 sm:my-6 overflow-x-hidden overflow-y-auto'>
           <div className={`${showModal ? 'opacity-100' : 'opacity-0'}`}>
             <div className='translate bg-[#262626] rounded-lg shadow-md md:h-auto w-full relative'>
               <div className='pt-3 flex items-center border-b border-gray-50/20'>
@@ -70,7 +70,7 @@ const UploadModal:React.FC<UploadModalProps> = ({
                   />
                 </button>
               </div>
-              <div className='h-[450px] grid grid-cols-2 w-full place-content-center px-4'>
+              <div className='h-full md:h-[450px] space-y-4 w-full flex flex-col md:flex-row px-4'>
                   {/* <LiaPhotoVideoSolid size={100} className="text-white"/>
                   <p className='text-center text-2xl text-white py-4'>Drag photos and videos here</p>
                   <input 
@@ -81,22 +81,35 @@ const UploadModal:React.FC<UploadModalProps> = ({
                     <button className='rounded-lg text-white outline-none border-none p-2 bg-[#0093CF] w-fit'>
                       Select from computer
                     </button>
-                  </label>                  */}
-                  <SingleImageDropzone
-                      width={400}
-                      height={400}
-                      value={file}
-                      onChange={(file) => {
-                        setFile(file);
-                      }}
-                  />
+                  </label> */}
+                  <div className='hidden md:block'>
+                    <SingleImageDropzone
+                        width={400}
+                        height={400}
+                        value={file}
+                        onChange={(file) => {
+                          setFile(file);
+                        }}
+                        />
+                  </div>
+                  <div className='md:hidden'>
+                    <SingleImageDropzone
+                    width={310}
+                    height={280}
+                    value={file}
+                    onChange={(file) => {
+                      setFile(file);
+                    }} />
+                  </div>
+                 
+                 
                   <div className='pl-5 overflow-hidden'>
                     <div className='flex items-center space-x-3'>
                       <Avatar user={currentUser}/>
                       <p className='text-white text-[20px]'>{currentUser?.username}</p>
                     </div>
                     <div className='py-3'>
-                      <textarea name="caption" ref={textareaRef} className='w-full bg-[#262626] text-white outline-none resize-none' rows={5} placeholder='Write a caption'></textarea>
+                      <textarea name="caption" ref={textareaRef} className='w-full bg-[#262626] text-white outline-none resize-none' rows={3} placeholder='Write a caption'></textarea>
                     </div>
                     <div className=' flex justify-between items-center'>
                       <p onClick={() => setIsOpen((prev) => !prev)}>

@@ -2,7 +2,7 @@ import React, { Dispatch, SetStateAction } from 'react'
 import { IconType } from 'react-icons'
 import Avatar from './Avatar';
 
-interface MenuItemProps {
+interface BottombarItemProps {
     name:string,
     icon: IconType,
     href: string,
@@ -14,29 +14,26 @@ interface MenuItemProps {
 
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({
+const BottombarItem: React.FC<BottombarItemProps> = ({
     name, icon: Icon, href,isactive, activeIcon: ActiveIcon, onClick, activeIndex, index
 }) => {
   return (
     <div className='group'>
-        <div onClick={onClick} className='flex space-x-3 py-3 px-2 items-center cursor-pointer hover:bg-gray-50/10 hover:rounded-lg md:hover:hover:bg-gray-50/10'>
-            <p className={`${index === 7 ? 'hidden': "block"} group-hover:scale-105`}>
+        <div onClick={onClick} className='py-3 px-2 cursor-pointer hover:rounded-lg focus:bg-none'>
+            <p className={`${index === 5 ? 'hidden': "block"} group-hover:scale-105`}>
                 {index === activeIndex ? (
-                    <ActiveIcon className='text-white'  size={30} />
+                    <ActiveIcon className='text-white' size={30} />
                 ): (     
                     <Icon className='text-white' size={30}/>
                 )} 
             </p>
-            <div className={`${index === 7 ? 'block': "hidden"} group-hover:scale-105 -pl-5`}>
-                {index == 7 && <Avatar />}
+            <div className={`${index === 5 ? 'block': "hidden"} group-hover:scale-105`}>
+                {index == 5 && <Avatar />}
             </div>
-            <p className='hidden lg:block text-[15px]  text-white'>
-                {name}
-            </p>
         </div>
     </div>
   )
 }
 
-export default MenuItem
+export default BottombarItem
 
