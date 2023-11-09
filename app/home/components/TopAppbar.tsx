@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import React, {useState, useCallback}from 'react'
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
