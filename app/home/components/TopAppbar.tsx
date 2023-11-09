@@ -17,7 +17,7 @@ const TopAppbar = () => {
   )
   
   return (
-    <div className='fixed top-0 w-full h-16 bg-black text-white p-3'>
+    <div className='fixed top-0 w-full h-16 bg-black text-white p-3 border-b border-gray-50/20'>
         <div className='flex justify-between'>
           <div className='flex space-x-2 items-center'>
             <Image
@@ -34,7 +34,9 @@ const TopAppbar = () => {
             <p onClick={handleClick}>
               {isClicked ? (
                 <AiFillHeart className='text-white' size={30}/>
-              ): <AiOutlineHeart className='text-white' size={30}/>}
+              ): (
+                <AiOutlineHeart className='text-white' size={30}/>
+              )}
             </p>
           </div>
         </div>
