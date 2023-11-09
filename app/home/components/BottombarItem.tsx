@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 interface BottombarItemProps {
     name:string,
     icon: IconType,
-    href: string,
+    href?: string,
     isactive?: boolean,
     activeIcon: IconType;
     onClick: () => void,
