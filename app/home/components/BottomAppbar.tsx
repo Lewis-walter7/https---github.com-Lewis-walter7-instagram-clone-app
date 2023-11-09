@@ -20,7 +20,7 @@ const BottomAppbar = () => {
       },[uploadModal],
     )
   return (
-    <div className='fixed z-10 bg-black bottom-0 w-full h-20 border-t border-gray-50/20'>
+    <div className='fixed z-10 bg-black bottom-0 w-full h-15 border-t border-gray-50/20'>
         <div className='p-1 flex md:hidden'>
             {bottomappbaritems.map(({name, icon, href, activeIcon}, idx) => (
                 <div className='flex-grow' key={name}>

@@ -19,7 +19,7 @@ const TopAppbar = () => {
   return (
     <div className='fixed top-0 w-full h-16'>
         <div className='flex justify-between'>
-          <div>
+          <div className='flex space-x-2 items-center'>
             <Image
               src='/images/logo.png'
               alt='Instagram'
@@ -28,7 +28,7 @@ const TopAppbar = () => {
             />
             <BiSolidChevronUp size={30} />
           </div>
-          <div>
+          <div className='flex space-x-2 items-center'>
             <BsPlusSquare size={30}/>
             <p onClick={handleClick}>
               {isClicked ? (
