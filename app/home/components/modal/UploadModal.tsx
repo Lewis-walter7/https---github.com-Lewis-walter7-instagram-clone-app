@@ -23,7 +23,7 @@ const UploadModal:React.FC<UploadModalProps> = ({
   currentUser
 }) => {
   const [file, setFile] = React.useState<File>();
-  const [text, setText] = useState('');
+  const [caption, setCaption] = useState('')
   const [isOpen, setIsOpen] = useState(false);
   const [cursorPosition, setCursorPosition] = useState()
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
@@ -41,14 +41,14 @@ const UploadModal:React.FC<UploadModalProps> = ({
         uploadModal.onClose()
     }
 
-    const onEmojiClick = (e:any, emoji:Emoji) => {
-      const ref = textareaRef.current
-      const start = text.substring(0, ref?.selectionStart)
-      const end = ref !==null ? text.substring(ref?.selectionEnd) : ''
-      const msg = start + emoji + end
-      setText(msg);
-      //setCursorPosition(start.length + emoji.)
-    }
+    // const onEmojiClick = (e:any, emoji:Emoji) => {
+    //   const ref = textareaRef.current
+    //   const start = text.substring(0, ref?.selectionStart)
+    //   const end = ref !==null ? text.substring(ref?.selectionEnd) : ''
+    //   const msg = start + emoji + end
+    //   setText(msg);
+    //   setCursorPosition(start.length + emoji.)
+    // }
 
     // useEffect(() => {
     //   if (textareaRef.current) {
@@ -63,9 +63,10 @@ const UploadModal:React.FC<UploadModalProps> = ({
           file
         });
         // you can run some server action or api here
-        axios.post('/api/post', { file, text})
+        await axios.post('/api/post', { file, caption})
         // to add the necessary data to your database
         console.log(res);
+        setCaption('')
       }
     }
     
@@ -125,7 +126,7 @@ const UploadModal:React.FC<UploadModalProps> = ({
                         <p className='text-white text-[20px]'>{currentUser?.username}</p>
                       </div>
                       <div className='py-3'>
-                        <textarea name="caption" ref={textareaRef} className='w-full bg-[#262626] text-white outline-none resize-none' rows={3} placeholder='Write a caption'></textarea>
+                        <textarea name="caption" value={caption} onChange={(e) => setCaption(e.target.value)} className='w-full bg-[#262626] text-white outline-none resize-none' rows={3} placeholder='Write a caption'></textarea>
                       </div>
                       <div className=' flex justify-between items-center'>
                         <p onClick={() => setIsOpen((prev) => !prev)}>
@@ -137,7 +138,7 @@ const UploadModal:React.FC<UploadModalProps> = ({
                         <Picker 
                           data={data} 
                           previewPosition='none' 
-                          onEmojiSelect = {onEmojiClick}
+                          //onEmojiSelect = {onEmojiClick}
                         />
                       </div>
                       <div className={`${isOpen ? 'hidden' : 'block'}`}

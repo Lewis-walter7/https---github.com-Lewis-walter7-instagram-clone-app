@@ -63,6 +63,7 @@ export default async function hanler(
 
 
     } catch (error) {
+        console.log(error)
         return new NextResponse("Invalid request")
     }
    
