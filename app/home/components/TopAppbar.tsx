@@ -17,10 +17,11 @@ const TopAppbar = () => {
   )
   
   return (
-    <div className='fixed top-0 w-full h-16'>
+    <div className='fixed top-0 w-full h-16 bg-black text-white p-3'>
         <div className='flex justify-between'>
           <div className='flex space-x-2 items-center'>
             <Image
+              className='text-white'
               src='/images/logo.png'
               alt='Instagram'
               width={100}
@@ -32,8 +33,8 @@ const TopAppbar = () => {
             <BsPlusSquare size={30}/>
             <p onClick={handleClick}>
               {isClicked ? (
-                <AiFillHeart size={30}/>
-              ): <AiOutlineHeart size={30}/>}
+                <AiFillHeart className='text-white' size={30}/>
+              ): <AiOutlineHeart className='text-white' size={30}/>}
             </p>
           </div>
         </div>
