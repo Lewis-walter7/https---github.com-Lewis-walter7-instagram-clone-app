@@ -37,7 +37,7 @@ const router = useRouter()
                     <Icon className='text-white' size={30}/>
                 )} 
             </p>
-            <div className={`${index === 7 ? 'block': "hidden"} group-hover:scale-105 md:-ml-5`}>
+            <div className={`${index === 7 ? 'block': "hidden"} group-hover:scale-105 md:-pl-5`}>
                 {index == 7 && <Avatar />}
             </div>
             <p className='hidden lg:block text-[15px]  text-white'>

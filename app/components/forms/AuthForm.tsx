@@ -11,6 +11,7 @@ import { AiFillFacebook } from 'react-icons/ai'
 import { signIn } from 'next-auth/react'
 import toast from 'react-hot-toast'
 import { useSession } from 'next-auth/react'
+import { ClipLoader } from 'react-spinners'
 
 type Variant = 'LOGIN' | 'REGISTER'
 
@@ -74,7 +75,9 @@ const AuthForm = () => {
 
     const socialAction = (action: string) => {
         setIsLoading(true)
-
+        signIn('facebook', {
+          redirect:false
+        })
     }
 
     const onClick = useCallback(() => {
@@ -90,7 +93,7 @@ const AuthForm = () => {
   }, [variant])
 
   return (
-    <div className='flex flex-col w-full items-center justify-center h-full'>
+    <div className='flex flex-col w-full items-center justify-center h-full relative'>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className='space-y-3'>
             {variant === 'REGISTER' && (
@@ -180,6 +183,14 @@ const AuthForm = () => {
                 </p>)}
             </div>
         </div>
+        {isLoading && (
+          <div className='absolute top-50 left-50'>
+            <ClipLoader 
+              size={150}
+              aria-label="Submitting..."
+            />
+          </div>
+        )}
       </div>
    
   )
