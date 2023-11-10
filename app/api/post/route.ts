@@ -1,7 +1,6 @@
 import getCurrentUser from '@/app/actions/getCurrentUser';
 import prisma from '@/app/lib/prismadb';
-import { NextApiRequest, NextApiResponse } from 'next';
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(
     req: NextRequest,
@@ -44,8 +43,7 @@ export async function GET(
 }
 
 export async function POST(
-    req: Request,
-    res: NextApiResponse
+    req: Request
 ){
     try {
         const body = await req.json();
@@ -54,7 +52,7 @@ export async function POST(
         const currentUser = await getCurrentUser();
 
         if (!currentUser) {
-            return res.status(401).end();
+            return Response.error();
         }
 
         const post = await prisma.post.create({
@@ -65,10 +63,10 @@ export async function POST(
             }
         });
 
-        return res.json(post);
+        return Response.json(post);
 
     } catch (error) {
         console.log(error);
-        return res.status(400).end();
+        return Response.error();
     }
 }
