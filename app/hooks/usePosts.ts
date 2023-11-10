@@ -1,5 +1,5 @@
-import useSWR from "swr";
 import fetcher from "../lib/fetcher";
+import useSWR from 'swr'
 
 const usePosts = () =>{
     const { data, isLoading, error, mutate} = useSWR("/api/post", fetcher)
