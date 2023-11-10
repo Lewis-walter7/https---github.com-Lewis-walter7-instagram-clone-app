@@ -47,7 +47,7 @@ export async function POST(
 ){
     try {
         const body = await req.json();
-        const { fileUrl, caption } = body;
+        const { url, caption } = body;
 
         const currentUser = await getCurrentUser();
 
@@ -57,7 +57,7 @@ export async function POST(
 
         const post = await prisma.post.create({
             data: {
-                fileUrl,
+                url,
                 caption,
                 userId: currentUser.id
             }
