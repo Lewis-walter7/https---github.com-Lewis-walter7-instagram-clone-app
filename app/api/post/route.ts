@@ -35,7 +35,7 @@ export  async function GET(
             }
 
             if(!posts){ 
-                return null
+                return res.status(400).end()
             }
             return res.status(200).json(posts)
 
@@ -60,7 +60,7 @@ export async function POST(
             const currentUser = await getCurrentUser();
 
             if(!currentUser){
-                return null
+                return res.status(400).end()
             }
   
             const post = await prisma.post.create({
