@@ -10,8 +10,6 @@ import PopupItem from './PopupItem'
 import { FaThreads } from 'react-icons/fa6'
 import useUploadModal from '@/app/hooks/useUploadModal'
 
-
-
 const Sidebar = () => {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
     const [isOpen, setIsOpen] = useState(false)

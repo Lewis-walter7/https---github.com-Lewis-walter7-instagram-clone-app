@@ -186,7 +186,7 @@ const AuthForm = () => {
         {isLoading && (
           <div className='absolute top-50 left-50'>
             <ClipLoader 
-              size={150}
+              size={50}
               aria-label="Submitting..."
             />
           </div>

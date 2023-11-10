@@ -121,7 +121,7 @@ const UploadModal:React.FC<UploadModalProps> = ({
                     </div>
                   
                   
-                    <div className='pl-5 pt-4 overflow-hidden flex-grow'>
+                    <div className='pt-2 overflow-hidden flex-grow'>
                       <div className='flex items-center space-x-3'>
                         <Avatar user={currentUser}/>
                         <p className='text-white text-[20px]'>{currentUser?.username}</p>

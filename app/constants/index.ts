@@ -34,7 +34,7 @@ export const menuitems = [
     {
         name: 'Reels',
         icon: BsCameraVideo,
-        href: '/reels/:id',
+       // href: `/reels/:${reelId}`,
         activeIcon: BsFillCameraVideoFill
     },
     {
