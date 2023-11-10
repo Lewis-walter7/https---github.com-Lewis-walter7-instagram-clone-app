@@ -1,16 +1,16 @@
 import getCurrentUser from '@/app/actions/getCurrentUser';
 import prisma from '@/app/lib/prismadb'
 import { NextApiRequest, NextApiResponse } from 'next';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 export  async function GET(
-    req:NextApiRequest,
+    req: NextRequest,
     res: NextApiResponse
 ){
         try {
             
              let posts;
-             const { userId } = req.query
+             const  userId  = req.nextUrl.searchParams.get("userId") as string
     
             if(userId && typeof userId === 'string'){
                  posts = await prisma.post.findMany({
@@ -46,13 +46,17 @@ export  async function GET(
 }
 
 export async function POST(
-    req:Request,
+    req: Request,
     res: NextApiResponse
 ){
     try {
-             
-            const { fileUrl, caption } = await req.body;
             
+            const body  = await req.json();
+            const { 
+                fileUrl,
+                caption
+            } = body
+
             const currentUser = await getCurrentUser();
 
             if(!currentUser){
