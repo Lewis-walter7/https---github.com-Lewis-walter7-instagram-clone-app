@@ -87,7 +87,7 @@ const UploadModal:React.FC<UploadModalProps> = ({
                     />
                   </button>
                 </div>
-                <div className='h-full md:h-[450px] space-y-4 w-full flex flex-col md:flex-row px-4'>
+                <div className='h-full md:h-[450px] md:space-y-4 space-x-3 w-full grid grid-cols-2 grid-rows-1 md:grid-cols-1 md:grid-rows-2 px-4'>
                     {/* <LiaPhotoVideoSolid size={100} className="text-white"/>
                     <p className='text-center text-2xl text-white py-4'>Drag photos and videos here</p>
                     <input 
@@ -99,7 +99,7 @@ const UploadModal:React.FC<UploadModalProps> = ({
                         Select from computer
                       </button>
                     </label> */}
-                    <div className='hidden md:block'>
+                    <div className='hidden lg:block flex-grow'>
                       <SingleImageDropzone
                           width={400}
                           height={400}
@@ -109,7 +109,7 @@ const UploadModal:React.FC<UploadModalProps> = ({
                           }}
                           />
                     </div>
-                    <div className='md:hidden'>
+                    <div className='lg:hidden'>
                       <SingleImageDropzone
                       width={310}
                       height={280}
@@ -120,7 +120,7 @@ const UploadModal:React.FC<UploadModalProps> = ({
                     </div>
                   
                   
-                    <div className='pl-5 overflow-hidden'>
+                    <div className='pl-5 overflow-hidden flex-grow'>
                       <div className='flex items-center space-x-3'>
                         <Avatar user={currentUser}/>
                         <p className='text-white text-[20px]'>{currentUser?.username}</p>
@@ -156,7 +156,7 @@ const UploadModal:React.FC<UploadModalProps> = ({
                     </div>
                 </div>
                 <div>
-                  <button type='submit'>
+                  <button type='submit' className='bg-blue-400 rounded-lg p-2 m-3'>
                     Share Post
                   </button>
                 </div>
