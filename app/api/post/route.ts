@@ -57,9 +57,7 @@ export async function POST(
 
         const post = await prisma.post.create({
             data: {
-                fileUrls: {
-                    set: [fileUrl]
-                },
+                fileUrl,
                 caption,
                 userId: currentUser.id
             }
