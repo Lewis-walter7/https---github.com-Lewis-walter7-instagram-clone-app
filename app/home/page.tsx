@@ -1,13 +1,11 @@
 'use client'
 
 import React from 'react'
-
-import { signOut } from 'next-auth/react'
 import PostCard from '../components/PostCard'
 import usePosts from '../hooks/usePosts'
 import { Post } from '@prisma/client'
 
-const page = () => {
+const HomePage = () => {
 
   const {data: homePosts, isLoading, error, mutate:mutateHomePosts} = usePosts()
   return (
@@ -22,4 +20,4 @@ const page = () => {
   )
 }
 
-export default page
+export default HomePage
