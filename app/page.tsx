@@ -12,7 +12,7 @@ export default function Home() {
   
  
   return (
-   <div className='w-full max-w-4xl md:flex md:space-x-10 md:items-center md:justify-center mx-auto'>
+   <div className='w-full max-w-4xl md:flex md:space-x-10 md:items-center md:justify-center mx-auto max-h-[100vh]'>
     <div>
       <div className='hidden md:inline-flex relative justify-end mt-6'>
         <Image
