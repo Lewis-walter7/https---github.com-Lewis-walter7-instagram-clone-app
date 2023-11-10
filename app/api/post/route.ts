@@ -46,7 +46,7 @@ export  async function GET(
 }
 
 export async function POST(
-    req:NextApiRequest,
+    req:Request,
     res: NextApiResponse
 ){
     try {
