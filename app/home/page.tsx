@@ -1,9 +1,5 @@
-'use client'
-
 import React from 'react'
-import PostCard from '../components/PostCard'
 import usePosts from '../hooks/usePosts'
-import { Post } from '@prisma/client'
 import HomePage from './components/HomePage'
 
 const page = () => {
