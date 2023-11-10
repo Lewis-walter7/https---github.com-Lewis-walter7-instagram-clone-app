@@ -100,7 +100,7 @@ const UploadModal:React.FC<UploadModalProps> = ({
                         Select from computer
                       </button>
                     </label> */}
-                    <div className='hidden lg:block'>
+                    <div className='hidden lg:block flex-grow'>
                       <SingleImageDropzone
                           width={400}
                           height={400}
@@ -121,7 +121,7 @@ const UploadModal:React.FC<UploadModalProps> = ({
                     </div>
                   
                   
-                    <div className='pt-2 overflow-hidden'>
+                    <div className='pt-2 overflow-hidden flex-grow'>
                       <div className='flex items-center space-x-3'>
                         <Avatar user={currentUser}/>
                         <p className='text-white text-[20px]'>{currentUser?.username}</p>
