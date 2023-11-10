@@ -88,7 +88,7 @@ const UploadModal:React.FC<UploadModalProps> = ({
                     />
                   </button>
                 </div>
-                <div className='h-full md:h-[450px] md:space-y-4 space-x-3 w-full grid grid-cols-1 grid-rows-2 md:grid-cols-2 md:grid-rows-1 p-4 place-content-center place-items-center'>
+                <div className='h-full md:h-[450px] md:space-y-4 space-x-3 w-full grid grid-cols-1 grid-rows-2 md:grid-cols-2 md:grid-rows-1 p-4 place-items-center'>
                     {/* <LiaPhotoVideoSolid size={100} className="text-white"/>
                     <p className='text-center text-2xl text-white py-4'>Drag photos and videos here</p>
                     <input 
@@ -121,7 +121,7 @@ const UploadModal:React.FC<UploadModalProps> = ({
                     </div>
                   
                   
-                    <div className='pt-2 overflow-hidden flex-grow'>
+                    <div className='pt-2 overflow-hidden'>
                       <div className='flex items-center space-x-3'>
                         <Avatar user={currentUser}/>
                         <p className='text-white text-[20px]'>{currentUser?.username}</p>
