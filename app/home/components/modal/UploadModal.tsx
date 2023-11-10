@@ -59,13 +59,13 @@ const UploadModal:React.FC<UploadModalProps> = ({
     const handlePostUpload = async (e: any) => {
       e.preventDefault();
       if (file) {
-        const res = await edgestore.publicFiles.upload({
+        const { url } = await edgestore.publicFiles.upload({
           file
         });
         // you can run some server action or api here
-        await axios.post('/api/post', { file, caption})
+        await axios.post('/api/post', { url, caption})
         // to add the necessary data to your database
-        console.log(res);
+        console.log(url);
         setCaption('')
       }
     }
