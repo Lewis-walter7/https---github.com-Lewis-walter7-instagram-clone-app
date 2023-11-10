@@ -37,17 +37,16 @@ export  async function GET(
             if(!posts){ 
                 return res.status(400).end()
             }
-            return res.status(200).json(posts)
+            return Response.json(posts)
 
         } catch (error) {
             console.log(error)
-            return new Response("Invalid request")
+            return Response.error()
         } 
 }
 
 export async function POST(
     req: Request,
-    res: NextApiResponse
 ){
     try {
             
@@ -60,7 +59,7 @@ export async function POST(
             const currentUser = await getCurrentUser();
 
             if(!currentUser){
-                return res.status(400).end()
+                return Response.error()
             }
   
             const post = await prisma.post.create({
@@ -71,7 +70,7 @@ export async function POST(
                 }
             });
 
-            return res.status(200).json(post)
+            return Response.json(post)
         
 
     } catch (error) {
