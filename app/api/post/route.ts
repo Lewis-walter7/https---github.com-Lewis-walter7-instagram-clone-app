@@ -1,14 +1,14 @@
 import getCurrentUser from '@/app/actions/getCurrentUser';
 import prisma from '@/app/lib/prismadb';
 import { NextApiRequest, NextApiResponse } from 'next';
+import { NextRequest } from 'next/server';
 
 export async function GET(
-    req: NextApiRequest,
-    res: NextApiResponse
+    req: NextRequest,
 ){
     try {
         let posts;
-        const userId = req.query.userId as string;
+        const userId = req.nextUrl.searchParams.get("userId") as string
 
         if (userId && typeof userId === 'string') {
             posts = await prisma.post.findMany({
@@ -33,13 +33,13 @@ export async function GET(
         }
 
         if (!posts || posts.length === 0) { 
-            return res.status(400).end();
+            return Response.error()
         }
-        return res.json(posts);
+        return Response.json(posts);
 
     } catch (error) {
         console.log(error);
-        return res.status(500).end();
+        return Response.error();
     } 
 }
 
@@ -48,7 +48,7 @@ export async function POST(
     res: NextApiResponse
 ){
     try {
-        const body = req.body;
+        const body = await req.body;
         const { fileUrl, caption } = body;
 
         const currentUser = await getCurrentUser();
