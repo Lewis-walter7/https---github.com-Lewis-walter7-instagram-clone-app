@@ -44,11 +44,11 @@ export async function GET(
 }
 
 export async function POST(
-    req: NextApiRequest,
+    req: Request,
     res: NextApiResponse
 ){
     try {
-        const body = await req.body;
+        const body = await req.json();
         const { fileUrl, caption } = body;
 
         const currentUser = await getCurrentUser();
