@@ -7,16 +7,10 @@ export  async function GET(
     req:NextApiRequest,
     res: NextApiResponse
 ){
-    
-    if(req.method !== "POST" && req.method !== 'GET'){
-        throw new Error("Invalid request");    
-    }
-
-    
         try {
-            if(req.method === "GET"){
-                let posts;
-                const { userId } = req.query
+            
+             let posts;
+             const { userId } = req.query
     
             if(userId && typeof userId === 'string'){
                  posts = await prisma.post.findMany({
@@ -38,9 +32,13 @@ export  async function GET(
                         comments: true
                         }
                     })
-                }
-    
             }
+
+            if(!posts){ 
+                return null
+            }
+            return res.status(200).json(posts)
+
         } catch (error) {
             console.log(error)
             return new NextResponse("Invalid request")
@@ -52,8 +50,7 @@ export async function POST(
     res: NextApiResponse
 ){
     try {
-
-        if(req.method === 'POST') {
+             
             const { fileUrl, caption } = await req.body;
             
             const currentUser = await getCurrentUser();
@@ -71,7 +68,7 @@ export async function POST(
             });
 
             return res.status(200).json(post)
-        }
+        
 
     } catch (error) {
         console.log(error)
