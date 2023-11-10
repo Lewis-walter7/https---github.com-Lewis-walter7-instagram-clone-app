@@ -87,7 +87,7 @@ const UploadModal:React.FC<UploadModalProps> = ({
                     />
                   </button>
                 </div>
-                <div className='h-full md:h-[450px] md:space-y-4 space-x-3 w-full grid grid-cols-2 grid-rows-1 md:grid-cols-1 md:grid-rows-2 px-4'>
+                <div className='h-full md:h-[450px] md:space-y-4 space-x-3 w-full grid grid-cols-1 grid-rows-2 md:grid-cols-2 md:grid-rows-1 px-4'>
                     {/* <LiaPhotoVideoSolid size={100} className="text-white"/>
                     <p className='text-center text-2xl text-white py-4'>Drag photos and videos here</p>
                     <input 
