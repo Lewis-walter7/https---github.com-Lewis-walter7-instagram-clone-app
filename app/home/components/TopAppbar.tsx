@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import React, {useState, useCallback}from 'react'
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
 import { BiSolidChevronUp } from 'react-icons/bi'
@@ -8,6 +9,7 @@ import { BsPlusSquare } from 'react-icons/bs'
 
 const TopAppbar = () => {
   const [isClicked, setIsClicked] = useState(false)
+  const router = useRouter()
 
   const handleClick = useCallback(
     () => {
@@ -15,6 +17,9 @@ const TopAppbar = () => {
     },
     [],
   )
+  const onClick = () => {
+     router.replace('/create')
+}
   
   return (
     <div className='fixed top-0 md:hidden w-full h-16 bg-black text-white p-3 border-b border-gray-50/20'>
