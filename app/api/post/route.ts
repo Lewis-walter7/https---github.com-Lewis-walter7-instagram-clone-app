@@ -41,7 +41,7 @@ export  async function GET(
 
         } catch (error) {
             console.log(error)
-            return new NextResponse("Invalid request")
+            return new Response("Invalid request")
         } 
 }
 
@@ -76,6 +76,6 @@ export async function POST(
 
     } catch (error) {
         console.log(error)
-        return new NextResponse("Invalid request")
+        return new Response("Invalid request")
     }
 }
