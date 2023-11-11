@@ -1,15 +1,17 @@
-/** @type {import('next').NextConfig} */
-// next.config.js
+ /** @type {import('next').NextConfig} */
+// // next.config.js
 
-module.exports = {
-    webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-      // Add your webpack configurations here
-      config.module.rules.push({
-        test: /\.html$/,
-        use: 'html-loader'
-      });
+// module.exports = {
+//     webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+//       // Add your webpack configurations here
+//       config.module.rules.push({
+//         test: /\.html$/,
+//         use: 'html-loader'
+//       });
   
-      return config;
-    },
-};
-  
+//       return config;
+//     },
+// };
+const nextConfig = {}
+
+module.exports = nextConfig
