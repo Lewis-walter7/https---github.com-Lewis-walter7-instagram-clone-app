@@ -1,12 +1,10 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import prisma from '@/app/lib/prismadb'
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 export async function GET(
-    req: NextApiRequest,
-    res: NextApiResponse
+    req: NextRequest
 ){
    try {
-        const { userId } = req.query;
+        const userId  = req.nextUrl.searchParams.get('userId');
 
         if(!userId || typeof userId !== 'string'){
             throw new Error("Invalid user");
@@ -28,6 +26,6 @@ export async function GET(
 
         return NextResponse.json({...existingUser, followers })
    } catch (error) {
-     return res.status(500).end()
+     return Response.error()
    }
 }
