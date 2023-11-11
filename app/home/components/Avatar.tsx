@@ -5,10 +5,11 @@ import React from 'react'
 
 interface AvatarProps {
     user?: User | null
+    isLarge?: boolean
 }
 
 const Avatar: React.FC<AvatarProps>= ({
-    user
+    user, isLarge
 }) => {
   const router = useRouter();
 
@@ -22,8 +23,8 @@ const Avatar: React.FC<AvatarProps>= ({
     <div className='rounded-full' onClick={handleClick}>
         <Image 
             src={user?.profileImage || '/images/placeholder.jpg'}
-            width={30}
-            height={30}
+            width={`${isLarge ? 150 : 30}`}
+            height={`${isLarge ? 150:30}`}
             objectFit='contain'
             alt='Avatar'
             className='rounded-full'
