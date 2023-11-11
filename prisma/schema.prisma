@@ -84,8 +84,10 @@ model Post {
   caption String?
   likeids String[] @db.ObjectId
   userId String @db.ObjectId
+  location String?
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
+  hideLikes Boolean?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 

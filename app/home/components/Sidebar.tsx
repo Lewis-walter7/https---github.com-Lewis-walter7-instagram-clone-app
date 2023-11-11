@@ -63,7 +63,7 @@ const Sidebar = () => {
                 </div>
             </div>
             {isOpen && (
-                <div className='absolute bottom-20 space-y-4 flex flex-col bg-[#262626] py-4 w-[260px] rounded-lg'>
+                <div className='absolute bottom-23 space-y-4 flex flex-col bg-[#262626] py-4 w-[260px] rounded-lg'>
                     <div className=''>
                         {items.map(({name, icon, href}) => (
                             <PopupItem 
