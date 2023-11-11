@@ -27,7 +27,7 @@ const Avatar: React.FC<AvatarProps>= ({
         <Image 
             src={fetchedUser?.profileImage || '/images/placeholder.jpg'}
             width={`${isLarge ? 150 : 30}`}
-            height={`${isLarge ? 150:30}`}
+            height={`${isLarge ? 150 : 30}`}
             objectFit='contain'
             alt='Avatar'
             className='rounded-full'
