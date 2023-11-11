@@ -30,9 +30,7 @@ const UploadModal:React.FC<UploadModalProps> = ({
   const { edgestore } = useEdgeStore();
   const uploadModal = useUploadModal();
 
-  if(!currentUser){
-    return null
-  }
+  
 
   const [showModal, setShowModal] = useState(uploadModal.isOpen);
 
@@ -74,6 +72,9 @@ const UploadModal:React.FC<UploadModalProps> = ({
       uploadModal.onClose()
     }
     
+    if(!currentUser){
+      return null
+    }
     
     if(showModal) {
       return (
