@@ -23,7 +23,7 @@ const Avatar: React.FC<AvatarProps>= ({
     router.push(url)
   }
   return (
-    <div className='rounded-full' onClick={handleClick}>
+    <div className='rounded-full -ml-3' onClick={handleClick}>
         <Image 
             src={fetchedUser?.profileImage || '/images/placeholder.jpg'}
             width={`${isLarge ? 150 : 30}`}
