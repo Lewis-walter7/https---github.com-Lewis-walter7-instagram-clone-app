@@ -4,6 +4,7 @@ import React, { Dispatch, SetStateAction } from 'react'
 import { IconType } from 'react-icons'
 import Avatar from './Avatar';
 import { useRouter } from 'next/navigation';
+import getCurrentUser from '@/app/actions/getCurrentUser';
 
 interface MenuItemProps {
     name:string,
@@ -17,15 +18,19 @@ interface MenuItemProps {
 
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({
+const MenuItem: React.FC<MenuItemProps> = async ({
     name, icon: Icon, href,isactive, activeIcon: ActiveIcon, onClick, activeIndex, index
 }) => {
-const router = useRouter()
+    const currentUser = await getCurrentUser()
+    const router = useRouter()
     const handleClick = () => {
         onClick()
         if(href){
             router.replace(href);
         }
+    }
+    if(!currentUser){
+        return null;
     }
   return (
     <div className='group'>
@@ -38,7 +43,7 @@ const router = useRouter()
                 )} 
             </p>
             <div className={`${index === 7 ? 'block': "hidden"} group-hover:scale-105 md:-pl-5`}>
-                {index == 7 && <Avatar />}
+                {index == 7 && <Avatar userId={currentUser.id} />}
             </div>
             <p className='hidden lg:block text-[15px]  text-white'>
                 {name}
