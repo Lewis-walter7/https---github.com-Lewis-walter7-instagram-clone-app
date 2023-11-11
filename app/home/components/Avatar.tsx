@@ -1,28 +1,31 @@
+import useUser from '@/app/hooks/useUser'
 import { User } from '@prisma/client'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 
 interface AvatarProps {
-    user?: User | null
+    userId: string,
     isLarge?: boolean
 }
 
 const Avatar: React.FC<AvatarProps>= ({
-    user, isLarge
+    userId, isLarge
 }) => {
   const router = useRouter();
+
+  const {data: fetchedUser} = useUser(userId)
 
   const handleClick = (e:any) => {
     e.stopPropagation();
 
-    const url = `/profile/${user?.id}`
+    const url = `/profile/${userId}`
     router.push(url)
   }
   return (
     <div className='rounded-full' onClick={handleClick}>
         <Image 
-            src={user?.profileImage || '/images/placeholder.jpg'}
+            src={fetchedUser?.profileImage || '/images/placeholder.jpg'}
             width={`${isLarge ? 150 : 30}`}
             height={`${isLarge ? 150:30}`}
             objectFit='contain'
