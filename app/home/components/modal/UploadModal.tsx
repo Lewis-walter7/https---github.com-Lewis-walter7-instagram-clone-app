@@ -16,7 +16,7 @@ import { Emoji } from 'emoji-mart';
 import axios from 'axios';
 
 interface UploadModalProps{
-  currentUser?: User | null
+  currentUser?: User
 }
 
 const UploadModal:React.FC<UploadModalProps> = ({
@@ -30,6 +30,9 @@ const UploadModal:React.FC<UploadModalProps> = ({
   const { edgestore } = useEdgeStore();
   const uploadModal = useUploadModal();
 
+  if(!currentUser){
+    return null
+  }
 
   const [showModal, setShowModal] = useState(uploadModal.isOpen);
 
@@ -123,9 +126,9 @@ const UploadModal:React.FC<UploadModalProps> = ({
                     </div>
                   
                   
-                    <div className='pt-2 overflow-hidden flex-grow w-full'>
+                    <div className='pt-2 overflow-hidden flex-grow'>
                       <div className='flex items-center space-x-3'>
-                        <Avatar user={currentUser}/>
+                        <Avatar userId={currentUser.id}/>
                         <p className='text-white text-[20px]'>{currentUser?.username}</p>
                       </div>
                       <div className='py-3'>

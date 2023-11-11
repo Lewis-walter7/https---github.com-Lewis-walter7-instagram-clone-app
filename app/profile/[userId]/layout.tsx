@@ -12,7 +12,12 @@ interface AppLayoutProps {
 export default async function AppLayout({
     children
 }: AppLayoutProps) {
-    const currentUser = await getCurrentUser()
+    const currentUser = await getCurrentUser();
+
+    if(!currentUser){
+        return null
+    }
+    
     return (
         <body className="bg-black text-white">
             <EdgeStoreProvider>
