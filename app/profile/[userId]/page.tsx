@@ -27,6 +27,7 @@ const UserProfile:React.FC<UserProfileProps> = async ({
       <div className='w-2/3'>
         <div>
           <p>{fetchedUser.username}</p>
+          
         </div>
       </div>
     </div>
