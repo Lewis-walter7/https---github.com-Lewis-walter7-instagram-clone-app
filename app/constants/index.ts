@@ -56,7 +56,7 @@ export const menuitems = [
     {
         name: 'Profile',
         icon: BiUserCircle,
-        href: '/profile/:id',
+        // href: '/profile/:id',
         activeIcon: BiSolidUserCircle
     }
 ]

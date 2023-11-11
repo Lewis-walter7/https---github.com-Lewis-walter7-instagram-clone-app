@@ -80,7 +80,9 @@ const UploadModal:React.FC<UploadModalProps> = ({
             <form onSubmit={handlePostUpload}>
               <div className='translate bg-[#262626] rounded-lg shadow-md md:h-auto w-full relative'>
                 <div className='pt-3 flex items-center border-b border-gray-50/20'>
-                  <p className='text-center flex-grow text-white text-2xl '>Create new post</p> 
+                  <p className='text-center flex-grow text-white text-2xl '>
+                    Create new post
+                  </p> 
                   <button onClick={handleClose} className='p-4'>
                     <AiOutlineCloseCircle 
                       className='rounded-full text-white'
@@ -100,7 +102,7 @@ const UploadModal:React.FC<UploadModalProps> = ({
                         Select from computer
                       </button>
                     </label> */}
-                    <div className='hidden lg:block flex-grow'>
+                    <div className='hidden lg:block flex-grow m-3 items-center'>
                       <SingleImageDropzone
                           width={400}
                           height={400}
@@ -110,7 +112,7 @@ const UploadModal:React.FC<UploadModalProps> = ({
                           }}
                           />
                     </div>
-                    <div className='lg:hidden'>
+                    <div className='lg:hidden m-2'>
                       <SingleImageDropzone
                       width={310}
                       height={280}
@@ -121,7 +123,7 @@ const UploadModal:React.FC<UploadModalProps> = ({
                     </div>
                   
                   
-                    <div className='pt-2 overflow-hidden flex-grow'>
+                    <div className='pt-2 overflow-hidden flex-grow w-full'>
                       <div className='flex items-center space-x-3'>
                         <Avatar user={currentUser}/>
                         <p className='text-white text-[20px]'>{currentUser?.username}</p>
