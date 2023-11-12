@@ -1,22 +1,6 @@
  /** @type {import('next').NextConfig} */
- // next.config.js
+ // next.config.jss
 
-module.exports = {
-    webpack: (config, { isServer }) => {
-      // Add your webpack configurations here
-      config.module.rules.push({
-        test: /\.html$/,
-        use: 'html-loader'
-      });
-      if (!isServer) {
-        config.resolve.fallback = {
-            fs: false
-        }
-    }
+const nextConfig = {}
 
-    return config;
-    },
-};
-/*const nextConfig = {}
-
-module.exports = nextConfig*/
+module.exports = nextConfig
